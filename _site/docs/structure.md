@@ -1,3 +1,0 @@
-- [x] Most of the chapter layout is complete.
-- [x] available in hindi and english
-- [ ] create a script to create pages with different permalink: en/chapter/1/ and permalink: hi/chapter/1/
