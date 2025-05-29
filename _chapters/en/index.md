@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Bhagavad Gita
-permalink: /en/
+permalink: /gita/en/
 lang: en
 ---
 
@@ -13,10 +13,10 @@ lang: en
 page.url | remove_first: '/' | remove_first: lang | prepend: '/' %}
 
 <p>
-  <strong>Language:</strong> {% unless lang == 'en' %}<a href="/en">English</a
-  >{% else %}English{% endunless %} | {% unless lang == 'hi' %}<a href="/hi"
+  <strong>Language:</strong> {% unless lang == 'en' %}<a href="/gita/en">English</a
+  >{% else %}English{% endunless %} | {% unless lang == 'hi' %}<a href="/gita/hi"
     >हिंदी</a
-  >{% else %}हिंदी{% endunless %} | {% unless lang == 'sa' %}<a href="/sa"
+  >{% else %}हिंदी{% endunless %} | {% unless lang == 'sa' %}<a href="/gita/sa"
     >संस्कृत</a
   >{% else %}संस्कृत{% endunless %}
 </p>
