@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+{% assign chapter_num = page.chapter_number | plus: 0 %} {% assign verses =
+site.data.verses | where: "chapter_number", chapter_num %}
+
+<h1>
+  {{ site.data.chapters[chapter_num | minus: 1].name_translation }} - {{
+  site.data.chapters[chapter_num | minus: 1].name }}
+</h1>
+<p>{{ site.data.chapters[chapter_num | minus: 1].chapter_summary }}</p>
+
+<hr />
+
+<p><strong>Back to:</strong> <a href="/">Chapters</a></p>
+
+<!-- Language Switcher -->
+{% assign current_url = page.url %}
+
+<p>
+  <strong>Language:</strong>
+  {% if current_url contains '/hi/' %} {% assign en_url = current_url | replace:
+  '/hi/', '/en/' %}
+  <a href="{{ en_url }}">English</a> | हिंदी {% elsif current_url contains
+  '/en/' %} {% assign hi_url = current_url | replace: '/en/', '/hi/' %} English
+  | <a href="{{ hi_url }}">हिंदी</a>
+  {% else %}
+  <a href="/en{{ current_url }}">English</a> |
+  <a href="/hi{{ current_url }}">हिंदी</a>
+  {% endif %}
+</p>
+
+<h2>Verses</h2>
+
+{% assign selected_author = "Swami Sivananda" %} {% if page.url contains '/hi'
+%} {% assign selected_author = "Swami Ramsukhdas" %} {% endif %} {% if page.url
+contains '/en' %} {% assign selected_author = "Swami Sivananda" %} {% endif %}
+{% for verse in verses %} {% assign translations = site.data.translations |
+where: "verse_id", verse.id | where: "authorName", selected_author %} {% for
+trans in translations %}
+<div class="verse-pair" style="display: flex; gap: 2rem; margin-bottom: 2rem">
+  <p>Verse {{ verse.verse_number }}</p>
+  <p>{{ trans.description | newline_to_br }}</p>
+</div>
+{% endfor %} {% endfor %}

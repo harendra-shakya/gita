@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+{% assign chapter_num = page.chapter_number | plus: 0 %} {% assign verses =
+site.data.verses | where: "chapter_number", chapter_num %}
+
+<h1>
+  {{ site.data.chapters[chapter_num | minus: 1].name_translation }} - {{
+  site.data.chapters[chapter_num | minus: 1].name }}
+</h1>
+<p>{{ site.data.chapters[chapter_num | minus: 1].chapter_summary }}</p>
+
+<hr />
+
+<h2>Verses</h2>
+{% for verse in verses %}
+<div class="verse">
+  <h3>Verse {{ verse.verse_number }}</h3>
+  <p><strong>Sanskrit:</strong><br />{{ verse.text | newline_to_br }}</p>
+  <p><strong>Transliteration:</strong><br />{{ verse.transliteration }}</p>
+  <p>
+    <strong>Word Meanings:</strong><br />{{ verse.word_meanings | newline_to_br
+    }}
+  </p>
+
+  {% assign translations = site.data.translations | where: "verse_id", verse.id
+  %} {% for trans in translations %}
+  <p>
+    <strong>Translation ({{ trans.authorName }}):</strong><br />{{
+    trans.description }}
+  </p>
+  {% endfor %}
+</div>
+<hr />
+{% endfor %}

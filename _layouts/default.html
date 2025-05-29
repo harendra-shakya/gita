@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    <nav>
+      <!-- Language switcher -->
+      <!-- {% assign current_lang = page.url | split: '/' | second %}
+  {% assign current_chapter = page.chapter_number %}
+  <select onchange="window.location.href=this.value">
+    <option value="/en{% if current_chapter %}/chapter/{{ current_chapter }}/{% endif %}" {% if current_lang == 'en' %}selected{% endif %}>English</option>
+    <option value="/hi{% if current_chapter %}/chapter/{{ current_chapter }}/{% endif %}" {% if current_lang == 'hi' %}selected{% endif %}>Hindi</option>
+  </select> -->
+    </nav>
+
+    <!-- <hr /> -->
+
+    <!-- 🔥 THIS is where the page content shows up -->
+    {{ content }}
+  </body>
+</html>

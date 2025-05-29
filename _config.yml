@@ -1,0 +1,5 @@
+collections:
+  chapters:
+    output: true
+  verses:
+    output: true
