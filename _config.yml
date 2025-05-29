@@ -3,3 +3,7 @@ collections:
     output: true
   verses:
     output: true
+
+baseurl: "/gita"
+url: "https://harendra-shakya.github.io"
+permalink: /:path/
